@@ -1,4 +1,19 @@
 {% extends 'base.html'%}
 {% block ideabag %}
-<p>我的创意盒子</p>
+<div class="am-g" id="inner">
+  
+</div>
+
+<script type="text/javascript">
+	var names = store.keys();
+	function output(names) {
+		if (names.length() == 0){
+			return;
+		}else{
+			for (name in names){
+				document.getElementById("inner").innerHTML() = "<div class="am-u-sm-3 am-u-sm-centered">"+name+"</div>";
+			}
+		}
+	}
+</script>
 {% endblock %}

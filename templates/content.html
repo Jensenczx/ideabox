@@ -1,9 +1,13 @@
 {% extends 'base.html'%}
 {% block info %}
-
+{% for info in ideainfo%}
+<div>
+  <a href="" class="am-icon-btn am-success am-icon-plus" onclick="localstore()"></a>
+</div>
 
 <ul data-am-widget="gallery" class="am-gallery am-avg-sm-1
   am-avg-md-2 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
+
   {% for info in ideainfo%}
     <li>
       <div class="am-gallery-item">
@@ -15,4 +19,40 @@
     {%endfor%}
   </ul>
 
+<li>
+  <div class="am-gallery-item">
+
+      <img src="{{ info[4] }}"/>
+      <h3 class="am-gallery-title">{{ info[1] }}</h3>
+      <div class="am-gallery-desc">{{ info[3] }}</div>
+
+  </div>
+</li>
+</ul>
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="{{ info[0] }}" data-title="{{ info[1] }}" data-url="/{{ info[0] }}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"feelmix"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+<script type="text/javascript">
+	var store = $.AMUI.store;
+	function localstore(store) {
+		store.set({{ info[1] }}, {{ info[0] }});
+	}
+	
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+{%endfor%}
 {% endblock %}

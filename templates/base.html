@@ -15,6 +15,7 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.js"></script>
   <script src="../static/semantic.min.js"></script>
   <script src="../static/feed.js"></script>
+  <script src="../static/amazeui.min.js"></script>
 </head>
 
 <body id="feed">
@@ -56,14 +57,17 @@
   </div>
   <!-- end -->
 
-<div>
-    {% block content%}
-    {% endblock%}
-    {% block ideabag%}
-    {%endblock%}
-    {% block info%}
-    {%endblock%}
-</div>
-
+  <div>
+      {% block content%}
+      {% endblock%}
+      {% block ideabag%}
+      {%endblock%}
+      {% block info%}
+      {%endblock%}
+  </div>
+  
+  <div style="position: fixed;right: 10px;bottom: 10px;">
+    <a href="ideabag.html" class="am-icon-btn am-success am-icon-bookmark"></a>
+  </div>
 </body>
 </html>
