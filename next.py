@@ -1,6 +1,7 @@
 __author__ = 'chenjensen'
 import urllib2
 import re
+import mysql.connector
 from HTMLParser import HTMLParser
 class MyHTMLParser(HTMLParser):
     URL = 'http://www.demo8.com/'
@@ -43,8 +44,25 @@ else:
     doc=response.read()
     page=doc.decode("utf-8")
     parser.feed(page)
+    mycon = mysql.connector.connect(user='root',password='',database='IdeaBox',use_unicode='true')
+    cursor = mycon.cursor()
+    num = 0
+    name =''
+    herf =''
+    content=''
     for info in parser.infolist:
         print info
+        if num%3 == 3:
+            name = info
+        elif num%3 == 1:
+            herf = info
+        else:
+            content = info
+            cursor.execute('insert into ideas(name,herf,content) values(%s,%s)',[name,herf,content])
+        num +=1
+    mycon.commit()
+    cursor.close()
+    mycon.close()
     parser.close()
 
 
