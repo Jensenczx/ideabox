@@ -11,7 +11,8 @@ def index():
 @app.route('/<word>')
 def bag(word):
     if word == 'ideabag':
-        return render_template('ideabag.html')
+        return render_template('ideabag.html',idealist=ida)
+
     else:
         helper = dbhelper()
         ideainfo = helper.getoneidea(word)
