@@ -1,8 +1,5 @@
 {% extends 'base.html'%}
 {% block info %}
-<div>
-  <a href="" class="am-icon-btn am-success am-icon-plus" onclick="localstore()"></a>
-</div>
 
 <ul data-am-widget="gallery" class="am-gallery am-avg-sm-1
   am-avg-md-1 am-avg-lg-1 am-gallery-default" data-am-gallery="{ pureview: false }">
@@ -11,6 +8,7 @@
           <img src="{{ ideainfo[4] }}"/>
           <h3 class="am-gallery-title">{{ ideainfo[1] }}</h3>
           <div class="am-gallery-desc">{{ ideainfo[3] }}</div>
+		  <h1 onclick="localstore()">添加标签</h1> 
       </div>
     </li>
 </ul>
