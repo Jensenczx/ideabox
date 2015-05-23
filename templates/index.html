@@ -1,3 +1,19 @@
 {% extends 'base.html'%}
 {% block content %}
+{% for ideatuple in idealist%}
+<!-- 图片 -->
+  <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+  am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
+    <li>
+      <div class="am-gallery-item">
+        
+          <img src="{{ ideatuple[4] }}"/>
+          <h3 class="am-gallery-title">{{ ideatuple[1] }}</h3>
+          <div class="am-gallery-desc">{{ ideatuple[3] }}</div>
+        
+      </div>
+    </li>
+  </ul>
+  <!-- end -->
+{%endfor%}
 {% endblock %}
