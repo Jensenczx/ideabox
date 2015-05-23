@@ -28,7 +28,10 @@ class MyHTMLParser(HTMLParser):
         self.tagname=None
     def handle_data(self, data):
        if self.tagname=='a' or self.tagname=='span':
-            self.infolist.append(data)
+            if data[0:2] == "13" or data[0:3]=="A D":
+                pass
+            else:
+                self.infolist.append(data)
 urlstr='http://next.36kr.com/posts/'
 parser = MyHTMLParser()
 try:
@@ -52,14 +55,17 @@ else:
     content=''
     for info in parser.infolist:
         print info
-        if num%3 == 3:
-            name = info
-        elif num%3 == 1:
+        if num%3 == 3 or num%3==0:
             herf = info
+        elif num%3 == 1:
+             name = info
         else:
             content = info
-            cursor.execute('insert into ideas(name,herf,content) values(%s,%s)',[name,herf,content])
-        num +=1
+            cursor.execute('insert into ideas(name,ideaherf,content) values(%s,%s,%s)',[name,'http://www.next.36kr.com'+herf,content])
+        if info == '13th':
+            pass
+        else :
+            num +=1
     mycon.commit()
     cursor.close()
     mycon.close()

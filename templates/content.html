@@ -1,3 +1,7 @@
+{% extends 'base.html'%}
 {% block info %}
-
+{% for info in ideainfo%}
+<p>{{info[0]}}</p>
+<p>{{info[1]}}</p>
+{%endfor%}
 {% endblock %}
