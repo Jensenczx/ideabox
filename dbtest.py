@@ -19,4 +19,6 @@ class dbhelper:
         mycon.commit()
         cursor.close()
         mycon.close()
-        return ideainfo
+        return ideainfo[0]
+helper = dbhelper()
+print helper.getoneidea(1455)

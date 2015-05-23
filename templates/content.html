@@ -1,36 +1,21 @@
 {% extends 'base.html'%}
 {% block info %}
-{% for info in ideainfo%}
 <div>
   <a href="" class="am-icon-btn am-success am-icon-plus" onclick="localstore()"></a>
 </div>
 
 <ul data-am-widget="gallery" class="am-gallery am-avg-sm-1
-  am-avg-md-2 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
-
-  {% for info in ideainfo%}
+  am-avg-md-1 am-avg-lg-1 am-gallery-default" data-am-gallery="{ pureview: false }">
     <li>
       <div class="am-gallery-item">
-          <img src="{{ info[3] }}"/>
-          <h3 class="am-gallery-title">{{ info[0] }}</h3>
-          <div class="am-gallery-desc">{{ info[2] }}</div>
+          <img src="{{ ideainfo[4] }}"/>
+          <h3 class="am-gallery-title">{{ ideainfo[1] }}</h3>
+          <div class="am-gallery-desc">{{ ideainfo[3] }}</div>
       </div>
     </li>
-    {%endfor%}
-  </ul>
-
-<li>
-  <div class="am-gallery-item">
-
-      <img src="{{ info[4] }}"/>
-      <h3 class="am-gallery-title">{{ info[1] }}</h3>
-      <div class="am-gallery-desc">{{ info[3] }}</div>
-
-  </div>
-</li>
 </ul>
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="{{ info[0] }}" data-title="{{ info[1] }}" data-url="/{{ info[0] }}"></div>
+<div class="ds-thread" data-thread-key="{{ ideainfo[0] }}" data-title="{{ ideainfo[1] }}" data-url="/{{ ideainfo[0] }}"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
@@ -47,12 +32,9 @@ var duoshuoQuery = {short_name:"feelmix"};
 <script type="text/javascript">
 	var store = $.AMUI.store;
 	function localstore(store) {
-		store.set({{ info[1] }}, {{ info[0] }});
+		store.set({{ ideainfo[1] }}, {{ ideainfo[0] }});
 	}
 	
 </script>
 <!-- 多说公共JS代码 end -->
-
-
-{%endfor%}
 {% endblock %}
