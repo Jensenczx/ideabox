@@ -1,18 +1,20 @@
 {% extends 'base.html'%}
 {% block info %}
-{% for info in ideainfo%}
+
 
 <ul data-am-widget="gallery" class="am-gallery am-avg-sm-1
   am-avg-md-2 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
+  {% for info in ideainfo%}
     <li>
       <div class="am-gallery-item">
-      	
+
           <img src="{{ info[3] }}"/>
           <h3 class="am-gallery-title">{{ info[0] }}</h3>
           <div class="am-gallery-desc">{{ info[2] }}</div>
 
       </div>
     </li>
+    {%endfor%}
   </ul>
-{%endfor%}
+
 {% endblock %}

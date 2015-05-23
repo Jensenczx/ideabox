@@ -1,9 +1,10 @@
 {% extends 'base.html'%}
 {% block content %}
-{% for ideatuple in idealist%}
+
 <!-- 图片 -->
   <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
   am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }">
+  {% for ideatuple in idealist%}
     <li>
       <div class="am-gallery-item">
         <a href="/{{ ideatuple[0] }}" class="">
@@ -13,7 +14,8 @@
         </a>
       </div>
     </li>
+  {%endfor%}
   </ul>
   <!-- end -->
-{%endfor%}
+
 {% endblock %}
