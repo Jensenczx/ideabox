@@ -14,7 +14,7 @@ class dbhelper:
     def getoneidea(self,id):
         mycon = mysql.connector.connect(user='root',password='',database='IdeaBox',use_unicode='true')
         cursor = mycon.cursor()
-        cursor.execute('select name,ideaherf,content,image from ideas where id=%s',[id])
+        cursor.execute('select id,name,ideaherf,content,image from ideas where id=%s',[id])
         ideainfo = cursor.fetchall()
         mycon.commit()
         cursor.close()
