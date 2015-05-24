@@ -9,8 +9,19 @@
           <img src="{{ ideainfo[4] }}"/>
           <h3 class="am-gallery-title">{{ ideainfo[1] }}</h3>
           <div class="am-gallery-desc">{{ ideainfo[3] }}</div>
-          <a onclick="localstore()" >添加标签</a>
+          
       </div>
+	  <button class="am-btn am-btn-primary js-modal-open">收藏</button>
+		<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
+		  <div class="am-modal-dialog">
+		    <div class="am-modal-hd">提示
+		      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+		    </div>
+		    <div class="am-modal-bd">
+		      已添加到收藏夹。
+		    </div>
+		  </div>
+		</div>
     </li>
 </ul>
 <!-- 多说评论框 start -->
@@ -34,6 +45,22 @@ var duoshuoQuery = {short_name:"feelmix"};
 		store.set({{ ideainfo[1] }}, {{ ideainfo[0] }});
 	}
 	
+</script>
+<script>
+  $(function() {
+    var $modal = $('#your-modal');
+
+    $modal.siblings('.am-btn').on('click', function(e) {
+      var $target = $(e.target);
+      if (($target).hasClass('js-modal-open')) {
+        $modal.modal();
+      } else if (($target).hasClass('js-modal-close')) {
+        $modal.modal('close');
+      } else {
+        $modal.modal('toggle');
+      }
+    });
+  });
 </script>
 <!-- 多说公共JS代码 end -->
 {% endblock %}
