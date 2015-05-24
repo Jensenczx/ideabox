@@ -11,11 +11,10 @@ def index():
 @app.route('/<word>')
 def bag(word):
     if word == 'ideabag':
-        return render_template('ideabag.html',idealist=ida)
-
+        return render_template('ideabag.html')
     else:
         helper = dbhelper()
         ideainfo = helper.getoneidea(word)
         return render_template('content.html',ideainfo=ideainfo)
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

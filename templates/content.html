@@ -11,7 +11,7 @@
           <div class="am-gallery-desc">{{ ideainfo[3] }}</div>
           
       </div>
-	  <button class="am-btn am-btn-primary js-modal-open">收藏</button>
+	  <button class="am-btn am-btn-primary js-modal-open" onclick="localstore()">收藏</button>
 		<div class="am-modal am-modal-no-btn" tabindex="-1" id="your-modal">
 		  <div class="am-modal-dialog">
 		    <div class="am-modal-hd">提示
@@ -42,9 +42,8 @@ var duoshuoQuery = {short_name:"feelmix"};
 <script type="text/javascript">
 	var store = $.AMUI.store;
 	function localstore(store) {
-		store.set({{ ideainfo[1] }}, {{ ideainfo[0] }});
+		localStorage.setItem({{ ideainfo[0] }}, "{{ ideainfo[1] }}");
 	}
-	
 </script>
 <script>
   $(function() {

@@ -1,19 +1,24 @@
 {% extends 'base.html'%}
 {% block ideabag %}
 <div class="am-g" id="inner">
-  
+
 </div>
 
 <script type="text/javascript">
-	var names = store.keys();
-	function output(names) {
-		if (names.length() == 0){
+	function output() {
+		var names = localStorage.length;
+		if (names == 0){
 			return;
 		}else{
-			for (name in names){
-				document.getElementById("inner").innerHTML() = "<div class="am-u-sm-3 am-u-sm-centered">"+name+"</div>";
+			for (var i=0;i<names;i++){
+                var n = localStorage.key(i);
+                if (!isNaN(n)){
+                    var m = localStorage.getItem(n);
+                    $('<div class="am-u-sm-3 am-u-sm-centered">'+m+'</div>').appendTo($('#inner'));
+                    }
 			}
 		}
 	}
+	window.onload = output;
 </script>
 {% endblock %}
