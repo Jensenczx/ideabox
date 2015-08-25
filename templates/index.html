@@ -2,20 +2,24 @@
 {% block content %}
 
 <!-- 图片 -->
-  <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
-  am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: false }">
-  {% for ideatuple in idealist%}
-    <li>
-      <div class="am-gallery-item">
-        <a href="/{{ ideatuple[0] }}" class="">
-          <img src="{{ ideatuple[4] }}"/>
-          <h3 class="am-gallery-title"><a href="{{ ideatuple[2] }}">{{ ideatuple[1] }}</a></h3>
-          <div class="am-gallery-desc">{{ ideatuple[3] }}</div>
-        </a>
-      </div>
-    </li>
-  {%endfor%}
-  </ul>
   <!-- end -->
+<div>
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
+  am-avg-md-3 am-avg-lg-4 am-gallery-bordered" data-am-gallery="{  }">
+        {% for ideatuple in idealist%}
+        <li>
+    <div class="am-gallery-item">
+      <a href="http://s.amazeui.org/media/i/demos/bing-1.jpg" class="">
+        <img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" alt="远方 有一个地方 那里种有我们的梦想"
+        />
+        <h3 class="am-gallery-title">{{ideatuple[0]}}</h3>
+        <div class="am-gallery-desc">{{ideatuple[3]}}</div>
+      </a>
+    </div>
+  </li>
+  {%endfor%}
+
+</ul>
+    </div>
 
 {% endblock %}
